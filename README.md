@@ -1,5 +1,5 @@
 # prtg-pure-storage
-PRTG script to check PURE storage SAN health
+PRTG script to check PURE storage SAN health using REST API
 
 To use: 
 1. Copy necessary files (prtg.standardlookups.purestorage.hardwarestatus.ovl and prtg.standardlookups.purestorage.drivestatus.ovl) to the lookups directory of prtg (C:\Program Files (x86)\PRTG Network Monitor\lookups) abd (pure-pure-storage.py to C:\Program Files (x86)\PRTG Network Monitor\Custom Sensors\python). Ensure you at least modify the API_TOKEN variable at the top. You can use the pureuser API key for this purpose
