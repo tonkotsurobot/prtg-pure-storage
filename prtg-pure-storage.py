@@ -16,7 +16,6 @@ def login(session):
 def get_volumes(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/volume?space=true', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("Provisioned size")
     for item in results:
         output.add_channel(channel_name=item['name'], unit="Bytes", value=item['size'])
@@ -25,7 +24,6 @@ def get_volumes(session):
 def get_volumes_usage(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/volume?space=true', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("Array real usage per volume")
     for item in results:
         output.add_channel(channel_name=item['name'], unit="Bytes", value=item['total'])
@@ -34,7 +32,6 @@ def get_volumes_usage(session):
 def get_volumes_io(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/volume?space=true', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("Volumes IO performance")
     for item in results:
         query = 'https://mslnrcorpsan3/api/1.8/volume' + '/' + item['name'] + '?action=monitor'
@@ -47,7 +44,6 @@ def get_volumes_io(session):
 def get_volumes_rw(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/volume?space=true', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("Volumes RW performance")
     for item in results:
         query = 'https://mslnrcorpsan3/api/1.8/volume' + '/' + item['name'] + '?action=monitor'
@@ -79,9 +75,6 @@ def get_hardware(session):
             output.add_channel(channel_name=item['name'], value=10, value_lookup="prtg.standardlookups.purestorage.hardwarestatus")
     print(output.get_json_result())     
 
-#get array read, write, queue depth here under pure performance
-
-
 def get_drives(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/drive', verify=False)
     results = json.loads(response.text)
@@ -112,26 +105,20 @@ def get_drives(session):
 def get_manual_snapshots(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/volume?snap=true&space=true', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("List of manually created snapshots")
     for item in results:
         if ( "Daily" not in item['name'] ):
-            output.add_channel(channel_name=item['name'], unit="Bytes", value=item['snapshots'], is_limit_mode=True, 
-
-limit_max_warning=100000000000, limit_warning_msg="Snapshot size too large")
+            output.add_channel(channel_name=item['name'], unit="Bytes", value=item['snapshots'], is_limit_mode=True, limit_max_warning=100000000000, limit_warning_msg="Snapshot size too large")
     print(output.get_json_result())
 
 def get_performance(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/array?action=monitor', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("PURE array performance")
     for item in results:
         output.add_channel(channel_name="Write bytes per second", unit="Bytes", value=item['output_per_sec'])
         output.add_channel(channel_name="Read bytes per second", unit="Bytes", value=item['input_per_sec'])
-        output.add_channel(channel_name="Queue depth", primary_channel=True, value=item['queue_depth'], is_limit_mode=True, 
-
-limit_max_warning=60, limit_warning_msg="Large queue depth")
+        output.add_channel(channel_name="Queue depth", primary_channel=True, value=item['queue_depth'], is_limit_mode=True, limit_max_warning=60, limit_warning_msg="Large queue depth")
         output.add_channel(channel_name="Write IOPS per second", unit="IOPS", value=item['writes_per_sec'])
         output.add_channel(channel_name="Read IOPS per second", unit="IOPS", value=item['reads_per_sec'])
         output.add_channel(channel_name="Write latency", unit="usec", value=item['usec_per_write_op'])
@@ -141,17 +128,12 @@ limit_max_warning=60, limit_warning_msg="Large queue depth")
 def get_capacity(session):
     response = session.get('https://mslnrcorpsan3/api/1.8/array?space=true', verify=False)
     results = json.loads(response.text)
-    # create sensor result
     output = CustomSensorResult("PURE array capacity")
     for item in results:
         output.add_channel(channel_name="Capacity", unit="Bytes", value=item['capacity'])
         output.add_channel(channel_name="Snapshot", unit="Bytes", value=item['snapshots'])
         output.add_channel(channel_name="Used space", unit="Bytes", value=item['total'])
-        output.add_channel(channel_name="Used %", primary_channel=True, unit="percent", value= (item['total'] * 100 / item
-
-['capacity']), is_limit_mode=True, limit_max_warning=SIZE_WARNING_THRESHOLD, limit_warning_msg="High array disk space usage", 
-
-limit_max_error=SIZE_ERROR_THRESHOLD, limit_error_msg="Very high array disk space usage")
+        output.add_channel(channel_name="Used %", primary_channel=True, unit="percent", value= (item['total'] * 100 / item['capacity']), is_limit_mode=True, limit_max_warning=SIZE_WARNING_THRESHOLD, limit_warning_msg="High array disk space usage", limit_max_error=SIZE_ERROR_THRESHOLD, limit_error_msg="Very high array disk space usage")
         output.add_channel(channel_name="Data reduction", is_float=True, value=item['data_reduction'])
     print(output.get_json_result())
 
