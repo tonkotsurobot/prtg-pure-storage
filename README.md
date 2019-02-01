@@ -2,7 +2,7 @@
 PRTG script to check PURE storage SAN health using REST API
 
 To use: 
-1. Copy necessary files (prtg.standardlookups.purestorage.hardwarestatus.ovl and prtg.standardlookups.purestorage.drivestatus.ovl) to the lookups directory of prtg (C:\Program Files (x86)\PRTG Network Monitor\lookups) abd (pure-pure-storage.py to C:\Program Files (x86)\PRTG Network Monitor\Custom Sensors\python). Ensure you at least modify the API_TOKEN variable at the top. You can use the pureuser API key for this purpose
+1. Copy necessary files (prtg.standardlookups.purestorage.hardwarestatus.ovl and prtg.standardlookups.purestorage.drivestatus.ovl) to the lookups directory of prtg (C:\Program Files (x86)\PRTG Network Monitor\lookups\custom) and (pure-pure-storage.py to C:\Program Files (x86)\PRTG Network Monitor\Custom Sensors\python). Ensure you at least modify the API_TOKEN variable at the top. You can use the pureuser API key for this purpose
 2. Restart PRTG core service to load these files as per https://www.paessler.com/manuals/prtg/prtg_probe_administrator
 3. Create a "Python Script Advanced" sensor in PRTG
 4. Select the right python script, and add the right additional parameter as the table below
