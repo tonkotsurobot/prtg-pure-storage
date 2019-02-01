@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="prtg.standardlookups.purestorage.drivestatus" desiredValue="0" undefinedState="Unknown" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PaeValueLookup.xsd">
+    <Lookups>
+      <SingleInt state="Ok" value="0">
+        Healthy
+      </SingleInt>
+      <SingleInt state="Ok" value="1">
+        Empty
+      </SingleInt>
+      <SingleInt state="Ok" value="2">
+        Updating
+      </SingleInt>
+      <SingleInt state="Ok" value="3">
+        Unused
+      </SingleInt>
+      <SingleInt state="Warning" value="4">
+        Evacuating
+      </SingleInt>
+      <SingleInt state="Warning" value="5">
+        Identifying
+      </SingleInt>
+      <SingleInt state="Warning" value="6">
+        Unhealthy
+      </SingleInt>
+      <SingleInt state="Warning" value="7">
+        Recovering
+      </SingleInt>
+      <SingleInt state="Error" value="8">
+        Unrecognized
+      </SingleInt>
+      <SingleInt state="Error" value="9">
+        Failed
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>

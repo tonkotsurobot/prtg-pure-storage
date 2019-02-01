@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="prtg.standardlookups.purestorage.hardwarestatus" desiredValue="0" undefinedState="Unknown" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PaeValueLookup.xsd">
+    <Lookups>
+      <SingleInt state="Ok" value="0">
+        Ok
+      </SingleInt>
+      <SingleInt state="Ok" value="1">
+        Not Installed
+      </SingleInt>
+      <SingleInt state="Warning" value="2">
+        Noncritical
+      </SingleInt>
+      <SingleInt state="Warning" value="3">
+        Degraded
+      </SingleInt>
+      <SingleInt state="Warning" value="4">
+        Unknown
+      </SingleInt>
+      <SingleInt state="Warning" value="5">
+        Identifying
+      </SingleInt>
+      <SingleInt state="Warning" value="6">
+        Fake Scanner
+      </SingleInt>
+      <SingleInt state="Warning" value="7">
+        VM Scanner
+      </SingleInt>
+      <SingleInt state="Error" value="8">
+        Device Off
+      </SingleInt>
+      <SingleInt state="Error" value="9">
+        HWMan Internal Error
+      </SingleInt>
+      <SingleInt state="Error" value="10">
+        Critical
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>
+
