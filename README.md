@@ -55,4 +55,7 @@ To use:
     </tr>
 </table>
 
+![All sensors](https://github.com/tonkotsurobot/prtg-pure-storage/raw/master/all-sensors.png)
+
+![Adding a sensor](https://github.com/tonkotsurobot/prtg-pure-storage/raw/master/add-sensor.png)
 
