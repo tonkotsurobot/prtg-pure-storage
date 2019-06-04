@@ -14,7 +14,7 @@ To use:
 5. Create a separate sensor for each switch/parameter
 
 
-LIST of SENSOR PARAMETERS
+##LIST of SENSOR PARAMETERS
 <table>
     <tr>
         <th>switch</th>
