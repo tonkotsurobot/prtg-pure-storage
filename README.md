@@ -1,5 +1,7 @@
 # prtg-pure-storage
-PRTG script to check PURE storage SAN health using REST API
+PRTG script to check PURE storage SAN statistics using REST API
+
+
 ![All available sensors](https://github.com/tonkotsurobot/prtg-pure-storage/raw/master/all%20sensors.png)
 
 To use: 
