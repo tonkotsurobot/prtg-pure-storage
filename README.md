@@ -64,4 +64,72 @@ To use:
 
 
 
+v20 addition.
+Prtg has released its v20 of its prtg network monitor software.
+Please use the corresponding script for this version.
+Switches are also different and has checks to ensure that channel name is longer than prtg maximum (32 characters) and channel count is less than max (50). If you have more than 50 volumes, this will only display the first 50 returned by the pure storage SAN
+
+## LIST of SENSOR PARAMETERS v20
+<table>
+    <tr>
+        <th>switch</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>-v</td>
+        <td>List all PURE storage volumes and its front end disk usage (as seen by client) </td>
+    </tr>
+    <tr>
+        <td>-u</td>
+        <td>List all PURE storage volumes and its back end disk usage(after dedup/compress with parity overhead)</td>
+    </tr>
+    <tr>
+        <td>-m</td>
+        <td>List all manually created volume snapshots and its backend size </td>
+    </tr>
+    <tr>
+        <td>-c</td>
+        <td>List PURE storage controllers and their health</td>
+    </tr>
+    <tr>
+        <td>-d</td>
+        <td>List PURE storage drives and their health</td>
+    </tr>
+    <tr>
+        <td>-h</td>
+        <td>List PURE storage hardware (fans, PSU, chassis, etc) and their health</td>
+    </tr>
+    <tr>
+        <td>-p</td>
+        <td>List PURE storage array performance including queue depth (with threshold for warning), IOPS, and RW rate and latency </td>
+    </tr>
+     <tr>
+        <td>-s</td>
+        <td>List PURE storage array capacity including snapshot size, data reduction and user definable WARNING and ERROR threshold for disk usage</td>
+    </tr>
+     <tr>
+        <td>-br</td>
+        <td>List PURE storage volumes read stats in bytes/s</td>
+    </tr>
+    <tr>
+        <td>-bw</td>
+        <td>List PURE storage volumes write stats in bytes/s</td>
+    </tr>
+    <tr>
+        <td>-ir</td>
+        <td>List PURE storage volumes read IOPS stats</td>
+    </tr>
+        <tr>
+        <td>-iw</td>
+        <td>List PURE storage volumes write IOPS stats</td>
+    </tr>
+    </tr>
+        <tr>
+        <td>-q</td>
+        <td>List PURE storage volumes queue depth</td>
+    </tr>
+
+</table>
+
+
 
